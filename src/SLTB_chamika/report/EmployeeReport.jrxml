@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e9f9e39-ee4d-44d9-9c72-07d1254ee5ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="25"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     employee.`SalaryNo` AS employee_SalaryNo,
+     employee.`E_SName` AS employee_E_SName,
+     employee.`E_Address` AS employee_E_Address,
+     employee.`E_NIC` AS employee_E_NIC,
+     employee.`E_Grade` AS employee_E_Grade,
+     employee.`E_DOB` AS employee_E_DOB,
+     employee.`E_BasicSalary` AS employee_E_BasicSalary,
+     employee.`E_AccountNo` AS employee_E_AccountNo,
+     employee.`E_Phone` AS employee_E_Phone,
+     employee.`E_StartDate` AS employee_E_StartDate,
+     employee.`E_MedicalStatus` AS employee_E_MedicalStatus,
+     employee.`E_Email` AS employee_E_Email
+FROM
+     `employee` employee]]>
+	</queryString>
+	<field name="employee_SalaryNo" class="java.lang.Integer"/>
+	<field name="employee_E_SName" class="java.lang.String"/>
+	<field name="employee_E_Address" class="java.lang.String"/>
+	<field name="employee_E_NIC" class="java.lang.String"/>
+	<field name="employee_E_Grade" class="java.lang.String"/>
+	<field name="employee_E_DOB" class="java.lang.String"/>
+	<field name="employee_E_BasicSalary" class="java.lang.String"/>
+	<field name="employee_E_AccountNo" class="java.lang.String"/>
+	<field name="employee_E_Phone" class="java.lang.String"/>
+	<field name="employee_E_StartDate" class="java.sql.Timestamp"/>
+	<field name="employee_E_MedicalStatus" class="java.lang.String"/>
+	<field name="employee_E_Email" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="111" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="8033250c-2425-4ed3-879b-0ffda0918a36"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="bd0406e0-10e2-4e6b-ae61-f72af0a341f5"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="FMBindumathi" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Y%s ,x¡.¡u]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="381" y="37" width="316" height="29" uuid="ba9edcdb-485f-40f2-9810-5871a422a241"/>
+					<textElement textAlignment="Right">
+						<font fontName="FMBindumathi" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[fydfrdõm;dk äfmdaj ]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="3d7cd8dd-f3f8-42c3-b3bb-d00563048c80"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="448b401e-b458-42be-aa09-99e9310a22f9"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<image scaleImage="RetainShape">
+				<reportElement x="726" y="0" width="76" height="102" backcolor="#000000" uuid="6b5d5b33-af8c-416c-9019-b7d429248e27"/>
+				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="RetainShape">
+				<reportElement x="726" y="0" width="76" height="102" backcolor="#000000" uuid="6b5d5b33-af8c-416c-9019-b7d429248e27"/>
+				<imageExpression><![CDATA["../../img/logo3.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="44" height="18" forecolor="#000000" uuid="6d8770f4-ba6e-4f66-9996-ac5aa574da37"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[fõ¡w ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="44" y="0" width="77" height="18" forecolor="#000000" uuid="2d461e98-e7e0-497c-be78-832b3d797152"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ku ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="121" y="0" width="66" height="18" forecolor="#000000" uuid="ee569daa-d5c5-4a88-ab54-401863295210"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[,smskh]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="187" y="0" width="77" height="18" forecolor="#000000" uuid="4e555b6e-2a3d-4f5a-9266-9163d0b9d06b"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[cd¡ye¡w ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="279" y="0" width="51" height="18" forecolor="#000000" uuid="cdc4cdf5-773a-4e8d-b4aa-e3012d73e0a0"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[fY%aKsh]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="341" y="0" width="55" height="18" forecolor="#000000" uuid="5d09619b-d024-4a56-af67-9e20a506a7c7"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Wmka oskh ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="411" y="0" width="51" height="18" forecolor="#000000" uuid="f08e2dda-fa80-491e-9641-6e264906c590"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[uQ ¡jegqm   ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="539" y="0" width="55" height="18" forecolor="#000000" uuid="3de33e2a-005e-4b04-a2d2-a6cc295f13bf"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ÿ ¡wxlh ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="605" y="0" width="72" height="18" forecolor="#000000" uuid="53e8549e-835d-4edd-9af4-c8f15fb362af"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[wd ¡oskh  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="686" y="0" width="40" height="18" forecolor="#000000" uuid="0e0a799f-cf8b-4768-ba7e-2ce597f1e287"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[fi! ¡;  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="737" y="0" width="55" height="18" forecolor="#000000" uuid="4c55956d-31ff-4479-81cf-7bd5688fb7e5"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[B fï,a]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="473" y="0" width="66" height="18" forecolor="#000000" uuid="7084ffc5-1552-444f-a90f-7c470c697731"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[.s¡wxlh  ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="c501c200-4b71-495c-a7d2-252bb06a5bbe"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="44" height="18" uuid="c5c3b015-f8b3-4b54-9cdb-86cc63f91413"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_SalaryNo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="44" y="0" width="77" height="18" uuid="73dff623-bea3-4d0d-95db-5991a0a8809c"/>
+					<textElement>
+						<font fontName="FMBindumathi" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_E_SName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="121" y="0" width="66" height="18" uuid="6a89c8ea-275d-4eea-83c3-08170a755939"/>
+					<textElement>
+						<font fontName="FMBindumathi" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_E_Address}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="187" y="0" width="77" height="18" uuid="e8c1e34c-cf9e-47d6-b498-b60e3ee5d097"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_E_NIC}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="279" y="0" width="51" height="18" uuid="11cef8de-1413-41cc-9082-55d0380697a8"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_E_Grade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="341" y="0" width="55" height="18" uuid="8bb073a6-39bc-4ebb-b3e5-719b284ba57a"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_E_DOB}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="411" y="0" width="51" height="18" uuid="ed0c20cc-b9e9-41ee-82cf-feedb3ea1073"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_E_BasicSalary}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="473" y="0" width="55" height="18" uuid="e764f05f-07e0-4af8-b901-fb46792b0815"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_E_AccountNo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="539" y="0" width="55" height="18" uuid="f41fb577-201c-40b1-947b-e9eb10743610"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_E_Phone}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="605" y="0" width="72" height="18" uuid="04145d55-2270-4148-ac8c-ba43eb6b4651"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_E_StartDate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="686" y="0" width="40" height="18" uuid="3436577e-30f6-4f97-8609-cd75a2be98e4"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_E_MedicalStatus}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="737" y="0" width="55" height="18" uuid="985550b4-e3ae-4799-99d5-026fa66ffc1e"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employee_E_Email}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="f744f245-f73a-4090-9727-1d785c48eea5"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="c53674de-d325-42e9-bbe0-dc40c4cb4662"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="81723952-49fc-452c-a520-8ec36c184dbf"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="10aee16f-81cb-4222-888c-85d2768a7482"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="d580a10d-5107-4a8c-a804-f1327d446d2f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

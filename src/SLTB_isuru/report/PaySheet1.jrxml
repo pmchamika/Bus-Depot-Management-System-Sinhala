@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aee53355-e1c2-4845-8f71-417fb08a77f9">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="288"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="sid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     employee.`SalaryNo` AS employee_SalaryNo,
+     employee.`E_Name` AS employee_E_Name,
+     employee.`E_NIC` AS employee_E_NIC,
+     employee.`E_SName` AS employee_E_SName,
+     monthlysalary.`Date` AS monthlysalary_Date,
+     monthlysalary.`LeaveDays` AS monthlysalary_LeaveDays,
+     monthlysalary.`BookingOT` AS monthlysalary_BookingOT,
+     monthlysalary.`OtherBonus` AS monthlysalary_OtherBonus,
+     monthlysalary.`Loans` AS monthlysalary_Loans,
+     monthlysalary.`BasicSal` AS monthlysalary_BasicSal,
+     monthlysalary.`Total` AS monthlysalary_Total,
+     employee.`E_Grade` AS employee_E_Grade,
+     employee.`E_BasicSalary` AS employee_E_BasicSalary,
+     employee.`E_AccountNo` AS employee_E_AccountNo
+FROM
+     `employee` employee INNER JOIN `monthlysalary` monthlysalary ON employee.`SalaryNo` = monthlysalary.`SalaryID`
+WHERE
+  employee.`SalaryNo` = $P{sid}]]>
+	</queryString>
+	<field name="employee_SalaryNo" class="java.lang.Integer"/>
+	<field name="employee_E_Name" class="java.lang.String"/>
+	<field name="employee_E_NIC" class="java.lang.String"/>
+	<field name="employee_E_SName" class="java.lang.String"/>
+	<field name="monthlysalary_Date" class="java.lang.String"/>
+	<field name="monthlysalary_LeaveDays" class="java.lang.Integer"/>
+	<field name="monthlysalary_BookingOT" class="java.lang.Double"/>
+	<field name="monthlysalary_OtherBonus" class="java.lang.Double"/>
+	<field name="monthlysalary_Loans" class="java.lang.Double"/>
+	<field name="monthlysalary_BasicSal" class="java.lang.Double"/>
+	<field name="monthlysalary_Total" class="java.lang.Double"/>
+	<field name="employee_E_Grade" class="java.lang.String"/>
+	<field name="employee_E_BasicSalary" class="java.lang.String"/>
+	<field name="employee_E_AccountNo" class="java.lang.String"/>
+	<group name="employee_SalaryNo">
+		<groupExpression><![CDATA[$F{employee_SalaryNo}]]></groupExpression>
+		<groupHeader>
+			<band height="71">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#CC0000" uuid="417e0f2b-e69c-4afd-9414-bf69023f85c9"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="2" y="1" width="479" height="23" forecolor="#000000" backcolor="#FFFFFF" uuid="ad93295c-75e4-43d2-9ec0-5c2512bab04c"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{employee_SalaryNo}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="403" y="7" width="152" height="23" uuid="c9982e8f-a9f5-45fa-9d3b-7a9b6ed44de3"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="true" pdfFontName="Times-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{monthlysalary_Date}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="135" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="132" backcolor="#000000" uuid="e32dff77-2e7b-4e77-8b8d-ede71a25b72d"/>
+				<staticText>
+					<reportElement style="SubTitle" x="167" y="91" width="214" height="29" uuid="6f889a88-ebbf-4122-8656-68f069d9e66e"/>
+					<textElement>
+						<font fontName="FMBindumathi" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[fydfrdõm;dk äfmdaj ]]></text>
+				</staticText>
+				<image>
+					<reportElement x="414" y="0" width="139" height="132" uuid="7045554f-0024-4f95-9910-7ab49fc3304c"/>
+					<imageExpression><![CDATA["../../img/logo3.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement style="SubTitle" x="191" y="10" width="157" height="46" uuid="7235cb41-097d-4275-920d-063a5b59c86d"/>
+					<textElement>
+						<font fontName="FMBindumathi" size="36" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Y%s ,x¡.¡u]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="0" y="112" width="144" height="20" forecolor="#FFFFFF" uuid="aa1fe0cd-3fe0-42b6-90ff-48e7ec7b32d2"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="240" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="120" y="22" width="132" height="20" forecolor="#000000" uuid="c7818021-1fb3-46ba-8f39-37ff39b41a8f"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[First Name :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="300" y="22" width="338" height="18" uuid="236a9d53-cbb0-4eb6-b60e-083d2953d63b"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee_E_Name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="120" y="40" width="132" height="20" forecolor="#000000" uuid="6253e676-d8ae-41d2-8818-491ebba93e47"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NIC :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="300" y="40" width="338" height="18" uuid="35aa2020-c368-43a3-b894-bb54d162d7fd"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee_E_NIC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="120" y="60" width="132" height="20" forecolor="#000000" uuid="d985fd02-752f-450a-a78b-d11abce13ec0"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Grade :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="300" y="60" width="338" height="18" uuid="a8a89959-83b9-4602-a758-a54597da13c8"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee_E_Grade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="120" y="80" width="132" height="20" forecolor="#000000" uuid="54b3092b-2bf4-443e-a459-20424394fe2f"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Account Number :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="300" y="80" width="338" height="18" uuid="204da718-e78d-411d-8bea-a4ef73693649"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employee_E_AccountNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="120" y="100" width="132" height="20" forecolor="#000000" uuid="7400e6d5-6162-465d-86b5-117a8e749830"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Basic Salary :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="300" y="100" width="338" height="18" uuid="baafc0e2-4763-4b16-aeb5-dcc3caa62689"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monthlysalary_BasicSal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="120" y="120" width="132" height="20" forecolor="#000000" uuid="dd194c37-c3b1-4c25-8174-513ed54b9faa"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Leave Days :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="300" y="120" width="338" height="18" uuid="ab233fbd-8fcf-4f40-8deb-f9d57535fe57"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monthlysalary_LeaveDays}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="120" y="140" width="132" height="20" forecolor="#000000" uuid="fd158469-dcc1-405a-bfcf-0d8ecff7d442"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Loans :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="300" y="140" width="338" height="18" uuid="4d8ae434-12c6-40bb-baff-5cd6f35a1753"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monthlysalary_Loans}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="120" y="160" width="132" height="20" forecolor="#000000" uuid="6bb6d1de-c9ce-4007-bab1-fc76aea4efac"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Over Time (Hrs):]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="300" y="160" width="338" height="18" uuid="ad965387-52bf-4e5a-a2bf-d162286ef0d1"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monthlysalary_BookingOT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="120" y="180" width="132" height="20" forecolor="#000000" uuid="c7da7997-cc09-4e14-a577-8399e64c1a23"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Bounus :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="300" y="180" width="338" height="18" uuid="db759805-5d94-438a-9e20-e4ae9bce735c"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monthlysalary_OtherBonus}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="120" y="200" width="132" height="20" forecolor="#000000" uuid="634504cf-d318-485f-870a-5ce6803a2ef0"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total Salary :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="300" y="200" width="338" height="18" uuid="387014dd-0890-4bfa-8027-3c5d1641a33e"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monthlysalary_Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="63bef5e2-3db1-472a-a99b-47ecd327d4c1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="8b5bde77-f95f-40d2-b44a-6f78ef631145"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="-1" width="40" height="13" forecolor="#FFFFFF" uuid="4b388f6c-6cf9-40ef-b511-652b61717b8e"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="-1" width="80" height="13" forecolor="#FFFFFF" uuid="39140b81-8343-43dd-b983-6d4983a002e5"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="0fb44b20-8f9a-4fb8-8fc2-5b1b2b3eb2c2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e342e9fb-1d28-42cc-ac81-581bb350d511">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     duty.`duty_no` AS duty_duty_no,
+     duty.`bus_type` AS duty_bus_type,
+     duty.`service_st` AS duty_service_st,
+     duty.`service_mid` AS duty_service_mid,
+     duty.`service_end` AS duty_service_end,
+     duty.`distance` AS duty_distance
+FROM
+     `duty` duty]]>
+	</queryString>
+	<field name="duty_duty_no" class="java.lang.Integer"/>
+	<field name="duty_bus_type" class="java.lang.String"/>
+	<field name="duty_service_st" class="java.lang.String"/>
+	<field name="duty_service_mid" class="java.lang.String"/>
+	<field name="duty_service_end" class="java.lang.String"/>
+	<field name="duty_distance" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement x="456" y="0" width="99" height="132" backcolor="#000000" uuid="61777036-478a-413e-a635-58ed6bc2ac87"/>
+				<imageExpression><![CDATA["../../img/logo3.png"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="9dca2155-e966-425b-b15c-783aa0193bb4"/>
+				<staticText>
+					<reportElement style="Title" x="21" y="13" width="370" height="53" uuid="03c1283f-9ce3-4b5c-882a-605567333e78"/>
+					<textElement>
+						<font fontName="FMBindumathi" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Y%s ,x¡.¡u]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="199" y="66" width="249" height="29" uuid="b4cf50ab-9866-4ace-816e-8dd73623af79"/>
+					<textElement>
+						<font fontName="FMBindumathi" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[fydfrdõm;dk äfmdaj ]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="54c84ed1-cae5-42ff-8d47-7bde1d3d7120"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="5c3c52b6-9248-41c9-b3b8-b9ee5c29437d"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date())]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="7" width="92" height="18" forecolor="#000000" uuid="e482d4ef-1e3f-4edd-8473-70dec2d50b70"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ld¾h wxlh]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="7" width="38" height="18" forecolor="#000000" uuid="35eadafb-12a0-4bcb-8e6c-5ca759da210e"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[n¡j ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="130" y="7" width="118" height="18" forecolor="#000000" uuid="7b3ca94a-5e68-4952-9be9-f0572733c2c9"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[fiajd wd¡ia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="248" y="7" width="120" height="18" forecolor="#000000" uuid="1dd38bf0-d284-44ac-beb9-ffb6a6a4d8bf"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[fiajd ue¡ia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="7" width="116" height="18" forecolor="#000000" uuid="682e2011-5ec2-42c3-9bcb-d456523846b4"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[fiajd wj¡ia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="484" y="8" width="68" height="18" forecolor="#000000" uuid="70498373-7ced-4db7-b7e8-c044881b7a9e"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[f,a¡. ÿr]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="1651f48d-b904-42bc-b0cb-d086bcaccbef"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="92" height="18" uuid="ed1ce1cb-b31c-48d1-bf1a-ab29291cb223"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{duty_duty_no}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="92" y="0" width="38" height="18" uuid="68c649b2-0dea-4cea-97a7-3a727beac4fc"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{duty_bus_type}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="130" y="0" width="118" height="18" uuid="3dfd6773-94b6-440b-977f-2ead33c7708c"/>
+					<textElement>
+						<font fontName="FMBindumathi" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{duty_service_st}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="248" y="0" width="120" height="18" uuid="33324d6a-11b8-49c3-a7c4-4c41f151c8cf"/>
+					<textElement>
+						<font fontName="FMBindumathi" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{duty_service_mid}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="368" y="0" width="116" height="18" uuid="39a909f1-f897-46d9-9101-5d31fcc774d7"/>
+					<textElement>
+						<font fontName="FMBindumathi" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{duty_service_end}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="484" y="0" width="68" height="18" uuid="df0df512-9d12-4350-8869-b475ad98b8a3"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{duty_distance}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="e06cf7ec-1934-44fb-b939-8af09b551afc"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="b65b2b90-d6a6-454f-915a-67d4e04ec2f1"/>
+				<textField>
+					<reportElement style="Column header" x="472" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="8cbfe152-5a83-44b0-86ca-1e757a96185d"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="FMBindumathi" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["msgqj "+$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="815840cf-27bb-4bbd-bfe5-d415b05ba630"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date())]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f9275358-05b4-4dc2-a9b2-a433c487547d">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="tid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     activitydetails.`TID` AS activitydetails_TID,
+     activitydetails.`RideNumber` AS activitydetails_RideNumber,
+     activitydetails.`TargetIncome` AS activitydetails_TargetIncome,
+     activitydetails.`BusNumber` AS activitydetails_BusNumber,
+     activitydetails.`Date` AS activitydetails_Date,
+     activitydetails.`Deport` AS activitydetails_Deport,
+     dailybonus.`DSalaryID` AS dailybonus_DSalaryID,
+     dailybonus.`Bounus` AS dailybonus_Bounus,
+     dailybonus.`CSalaryID` AS dailybonus_CSalaryID,
+     seasonsincome.`TicketIncome` AS seasonsincome_TicketIncome,
+     seasonsincome.`TicketQty` AS seasonsincome_TicketQty,
+     seasonsincome.`SeasonsQty` AS seasonsincome_SeasonsQty,
+     seasonsincome.`SeasonsIncome` AS seasonsincome_SeasonsIncome,
+     seasonsincome.`PassengerSeasonsQty` AS seasonsincome_PassengerSeasonsQty,
+     seasonsincome.`NormalSeasonsQty` AS seasonsincome_NormalSeasonsQty,
+     seasonsincome.`MonksSeasonsQty` AS seasonsincome_MonksSeasonsQty,
+     seasonsincome.`TotalIncome` AS seasonsincome_TotalIncome,
+     dailyexpenses.`ParkingEntryPayment` AS dailyexpenses_ParkingEntryPayment,
+     activitydetails.`Income` AS activitydetails_Income
+FROM
+     `activitydetails` activitydetails INNER JOIN `dailybonus` dailybonus ON activitydetails.`TID` = dailybonus.`TID`
+     INNER JOIN `dailyexpenses` dailyexpenses ON activitydetails.`TID` = dailyexpenses.`TID`
+     INNER JOIN `seasonsincome` seasonsincome ON activitydetails.`TID` = seasonsincome.`TID`
+WHERE
+     activitydetails.`TID` = $P{tid}]]>
+	</queryString>
+	<field name="activitydetails_TID" class="java.lang.Integer"/>
+	<field name="activitydetails_RideNumber" class="java.lang.Integer"/>
+	<field name="activitydetails_TargetIncome" class="java.lang.Double"/>
+	<field name="activitydetails_BusNumber" class="java.lang.String"/>
+	<field name="activitydetails_Date" class="java.sql.Date"/>
+	<field name="activitydetails_Deport" class="java.lang.String"/>
+	<field name="dailybonus_DSalaryID" class="java.lang.Integer"/>
+	<field name="dailybonus_Bounus" class="java.lang.Double"/>
+	<field name="dailybonus_CSalaryID" class="java.lang.Integer"/>
+	<field name="seasonsincome_TicketIncome" class="java.lang.Double"/>
+	<field name="seasonsincome_TicketQty" class="java.lang.Integer"/>
+	<field name="seasonsincome_SeasonsQty" class="java.lang.Integer"/>
+	<field name="seasonsincome_SeasonsIncome" class="java.lang.Double"/>
+	<field name="seasonsincome_PassengerSeasonsQty" class="java.lang.Integer"/>
+	<field name="seasonsincome_NormalSeasonsQty" class="java.lang.Integer"/>
+	<field name="seasonsincome_MonksSeasonsQty" class="java.lang.Integer"/>
+	<field name="seasonsincome_TotalIncome" class="java.lang.Double"/>
+	<field name="dailyexpenses_ParkingEntryPayment" class="java.lang.Double"/>
+	<field name="activitydetails_Income" class="java.lang.Double"/>
+	<group name="activitydetails_RideNumber">
+		<groupExpression><![CDATA[$F{activitydetails_RideNumber}]]></groupExpression>
+		<groupHeader>
+			<band height="46">
+				<frame>
+					<reportElement mode="Opaque" x="2" y="7" width="555" height="24" forecolor="#B89F7D" backcolor="#FF0000" uuid="9e33017f-f8b9-4b3f-930f-e05e16cc25f3"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="15" y="0" width="464" height="23" forecolor="#FFFFFF" uuid="f0e84734-aa43-4747-b600-9c0a4f8ec001"/>
+						<textElement>
+							<font isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{activitydetails_RideNumber}]]></textFieldExpression>
+					</textField>
+					<textField pattern="EEEEE dd MMMMM yyyy">
+						<reportElement x="393" y="3" width="144" height="20" forecolor="#FFFFFF" uuid="37936bb4-c3fa-4c3b-ba8a-c30cd7d7548f"/>
+						<textElement textAlignment="Right">
+							<font size="12"/>
+						</textElement>
+						<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="92997a8a-ff8a-4f2d-9ccb-912810c15178"/>
+				<textElement>
+					<font fontName="FMBindumathi" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Y%s ,x¡.¡u]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="557" height="132" backcolor="#000000" uuid="03cd8734-10d2-4074-af63-a1e01b5a00ec"/>
+				<staticText>
+					<reportElement style="SubTitle" x="167" y="91" width="214" height="29" uuid="4c0e51e3-e96f-453e-b595-b0c63fe4c27f"/>
+					<textElement>
+						<font fontName="FMBindumathi" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[fydfrdõm;dk äfmdaj ]]></text>
+				</staticText>
+				<image>
+					<reportElement x="414" y="0" width="139" height="132" uuid="d1b8fb20-4032-4aac-9e1b-0199525d2840"/>
+					<imageExpression><![CDATA["../../img/logo3.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement style="SubTitle" x="191" y="10" width="157" height="46" uuid="5917cee9-a9bd-4c2d-bd0a-f17475509cc2"/>
+					<textElement>
+						<font fontName="FMBindumathi" size="36" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Y%s ,x¡.¡u]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="340" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="0" width="132" height="20" forecolor="#000000" uuid="78d176fc-67fa-41a0-a18c-3b8a8d27cf6b"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Bus Number :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="0" width="309" height="18" uuid="16ee477e-379e-439d-8397-d720e31e24b6"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{activitydetails_BusNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="20" width="132" height="20" forecolor="#000000" uuid="35614030-f029-4c7d-ba8e-76284b1e5021"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="20" width="309" height="18" uuid="9ada4426-b890-496d-bbe8-e001212bdee5"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{activitydetails_Date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="40" width="132" height="20" forecolor="#000000" uuid="733d4d63-d101-45ef-916f-540dd2e19f0d"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Target Income :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="40" width="309" height="18" uuid="c2f8ef1a-145d-49a6-81be-36204a39ac90"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{activitydetails_TargetIncome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="60" width="132" height="20" forecolor="#000000" uuid="f583d338-cd4e-4afb-8434-4da508c9c1f6"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Deport :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="60" width="309" height="18" uuid="05ac413a-3e54-427e-87db-6a2fb683dfe3"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{activitydetails_Deport}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="80" width="132" height="20" forecolor="#000000" uuid="2e7c86ce-cb2f-4dfa-a26d-5d59649a9787"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Driver SalaryID :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="80" width="309" height="18" uuid="27070581-0039-4a96-89cb-4d5ecf8ad5b4"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dailybonus_DSalaryID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="100" width="132" height="20" forecolor="#000000" uuid="bdc2d001-ec81-4940-8258-88cf39696f13"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Conductor SalaryID :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="100" width="309" height="18" uuid="796217a4-7b94-43c2-8b9a-88514955ef5b"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dailybonus_CSalaryID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="120" width="132" height="20" forecolor="#000000" uuid="f3bc703f-5ce4-4cfa-9f44-5922a89ec624"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Bounus :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="120" width="309" height="18" uuid="421a5dbb-2a48-475b-b5f9-4b3888ef4b93"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dailybonus_Bounus}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="140" width="132" height="20" forecolor="#000000" uuid="0dd16b58-492e-488c-8f74-f66b9981e513"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ticket Qty :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="140" width="309" height="18" uuid="b0e69fb1-6e9f-402d-834c-164c3f2ee8f0"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seasonsincome_TicketQty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="160" width="132" height="20" forecolor="#000000" uuid="8d04436d-cb04-4bfc-a79f-a2f9dad93bc1"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ticket Income :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="160" width="309" height="18" uuid="41a15a77-7763-4706-bf8f-a1bcba41e7cf"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seasonsincome_TicketIncome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="180" width="132" height="20" forecolor="#000000" uuid="24b0414f-8a03-4300-81e3-58874a1db703"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Seasons Qty :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="180" width="309" height="18" uuid="e71d6d8b-adae-4046-97e5-8344f89871ed"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seasonsincome_SeasonsQty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="200" width="132" height="20" forecolor="#000000" uuid="7d554d47-76a2-4e16-b35f-7fb043d9622a"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Seasons Income :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="200" width="309" height="18" uuid="4e42a17d-175e-4491-88f9-0d6f2018191a"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seasonsincome_SeasonsIncome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="220" width="165" height="20" forecolor="#000000" uuid="d129da0e-da9c-464d-a38a-40459807f666"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Passenger Seasons Qty :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="220" width="309" height="18" uuid="5e97326d-b739-4f17-bd4e-2879ef55272f"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seasonsincome_PassengerSeasonsQty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="240" width="151" height="20" forecolor="#000000" uuid="039dc5f2-2bc1-4dc4-a0f5-721a4f271e8a"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Normal Seasons Qty :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="240" width="309" height="18" uuid="b6978054-2abe-46f7-abca-8e747d10212d"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seasonsincome_NormalSeasonsQty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="260" width="151" height="20" forecolor="#000000" uuid="d1f301fb-9aaa-4623-a5fa-07be860526be"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Monks Seasons Qty :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="260" width="309" height="18" uuid="0a9b9f9b-68f2-4612-904f-b4a1380736f2"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seasonsincome_MonksSeasonsQty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="280" width="132" height="20" forecolor="#000000" uuid="89e339df-97a1-4bfd-bd1e-02c466633d5a"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total Income :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="280" width="309" height="18" uuid="c45e8f0d-9d0e-4a03-bc2b-89165fb79a87"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seasonsincome_TotalIncome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="300" width="165" height="20" forecolor="#000000" uuid="66abbbe4-34c1-4d59-821c-3f4cb66b0a23"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Parking Entry Payment :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="300" width="309" height="18" uuid="cf34283f-0772-4e7a-98ae-6d2d6a0b8f10"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dailyexpenses_ParkingEntryPayment}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="79" y="320" width="132" height="20" forecolor="#000000" uuid="8bb2262f-7db8-4ae5-afe8-6deddfcb8de3"/>
+				<textElement textAlignment="Left">
+					<font size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Income :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="244" y="320" width="309" height="18" uuid="69ee6eea-4cf9-4edf-895e-f33f5959924b"/>
+				<textElement>
+					<font size="14" isBold="true" pdfFontName="Times-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{activitydetails_Income}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="70971691-01a2-4d2b-a603-ad0abe83cf08"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="3e8017d4-deba-4641-aa5e-60b386249ae3"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="-1" width="40" height="13" forecolor="#FFFFFF" uuid="b2bf8146-1bdb-4bfb-91ea-75574263e10d"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="-1" width="80" height="13" forecolor="#FFFFFF" uuid="54bf20f9-42f2-4c80-bcdd-1dd1f6b483ed"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="fae5c551-bc5d-4d62-80fe-642aa1b59c61"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
